@@ -26,7 +26,7 @@ class WatchlistPage(BasePage):
 
     def is_watchlist_empty(self):
         if (len(self.driver.find_elements(MobileBy.XPATH,
-                "//XCUIElementTypeScrollView/following-sibling:: XCUIElementTypeStaticText")) > 0):
+                "//XCUIElementTypeScrollView/following-sibling::XCUIElementTypeStaticText")) > 0):
             return False
         else:
             return True
@@ -35,5 +35,6 @@ class WatchlistPage(BasePage):
         return self.wait_for_element(currencyPair)
 
     def navigate_to_alerts_tab(self):
+        self.wait_for_element(self.tabAlerts)
         self.click_on_element(self.tabAlerts)
 

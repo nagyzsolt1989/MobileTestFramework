@@ -21,7 +21,14 @@ class AlertsPage(BasePage):
         return self.get_text(title)
 
     def add_new_item(self):
+        self.wait_for_element(self.buttonAdd)
         self.click_on_element(self.buttonAdd)
 
     def navigate_to_watchlist_tab(self):
+        self.wait_for_element(self.tabWatchlist)
         self.click_on_element(self.tabWatchlist)
+
+    def is_alert_displayed(self, currencyPair, price):
+        alertLocator = (MobileBy.XPATH, "//XCUIElementTypeStaticText[contains(@name, '" + currencyPair +
+                        "') and contains(@name, '" + price + "')]")
+        return self.wait_for_element(alertLocator)

@@ -33,8 +33,11 @@ class CreateAlertPage(BasePage):
         return self.get_text(title)
 
     def add_new_alert(self, currencyPair, price):
-        self.click_on_element(self.buttonAdd)
-        self.click_on_element(self.currencyPair)
+        self.click_on_element(currencyPair)
         self.send_keys(self.inputPrice, price)
+        self.click_on_element(self.buttonCreateAlert)
+
+    def add_new_alert_without_price(self, currencyPair):
+        self.click_on_element(currencyPair)
         self.click_on_element(self.buttonCreateAlert)
 

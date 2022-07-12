@@ -21,6 +21,9 @@ class EditWatchlistPage(BasePage):
     pairADAGBP = (MobileBy.ACCESSIBILITY_ID, "ADA/GBP")
     pairADACHF = (MobileBy.ACCESSIBILITY_ID, "ADA/CHF")
     pairDOTUSD = (MobileBy.ACCESSIBILITY_ID, "DOT/USD")
+    pairDOTEUR = (MobileBy.ACCESSIBILITY_ID, "DOT/EUR")
+    pairDOTGBP = (MobileBy.ACCESSIBILITY_ID, "DOT/GBP")
+    pairDOTCHF = (MobileBy.ACCESSIBILITY_ID, "DOT/CHF")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -34,4 +37,6 @@ class EditWatchlistPage(BasePage):
 
     def select_pair(self, currencyPair):
         self.click_on_element(currencyPair)
+
+    def navigate_back(self):
         self.click_on_element(self.buttonBack)
