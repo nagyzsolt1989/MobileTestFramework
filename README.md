@@ -10,7 +10,13 @@ Sample Appium Test Framework in Python
 ## Getting Started
 ```
 1. git clone https://github.com/nagyzsolt1989/MobileTestFramework.git
-2. Navigate to `SeleniumPythonFramework`
+2. Navigate to `MobileTestFramework`
+3. Replace <ANDROID EMULATOR> placeholder with you Android Emulator in MobileTestFramework/tests/android/AndroidBaseTest.py
+4. Replace <ANDROID APP ABSOLUTE PATH>> placeholder with the absolute path of your apk in MobileTestFramework/tests/android/AndroidBaseTest.py
+5. Change the platformVersion value to your emulators' version
+6. Replace <IOS SIMULATOR> placeholder with you iOS Simulator in MobileTestFramework/tests/ios/IOSBaseTest.py
+4. Replace <IOS APP ABSOlUTE PATH> placeholder with the absolute path of your zip in MobileTestFramework/tests/ios/IOSBaseTest.py
+5. Change the platformVersion value to your simulators' version
 ```
 
 ## Runing a Test
@@ -22,4 +28,4 @@ Sample Appium Test Framework in Python
 - Pytest HMTL Report
 
 ### Sample Report
-![image](https://user-images.githubusercontent.com/65847528/107118568-c9d5ef00-68a7-11eb-9878-2c3cc2bc3ad5.png)
+![Screenshot 2022-07-12 at 23 24 20](https://user-images.githubusercontent.com/12999800/178598510-bc1a6e26-0fe1-40d7-8ec9-cabecb6b2fa7.png)
