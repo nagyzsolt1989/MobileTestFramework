@@ -8,6 +8,7 @@ Sample Appium Test Framework in Python
 3. PIP
 4. Running Appium client
 5. Suitable Android and iOS binaries
+6. Available Android Emulator and iOS Simulator
 ```
 
 ## Getting Started
