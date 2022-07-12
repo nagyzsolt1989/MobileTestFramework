@@ -19,7 +19,7 @@ class AndroidBaseTest(unittest.TestCase):
         }
 
         self.driver = webdriver.Remote("http://0.0.0.0:4723/wd/hub", desired_caps)
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(10)
 
     def tearDown(self):
         self.driver.quit()

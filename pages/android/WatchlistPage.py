@@ -8,8 +8,10 @@ class WatchlistPage(BasePage):
     """
     titleWatchlist = (MobileBy.ACCESSIBILITY_ID, "Watchlist")
     buttonAdd = (MobileBy.ACCESSIBILITY_ID, "add-icon")
-    tabWatchlist = (MobileBy.XPATH, "//android.view.View[contains(@content-desc, 'Watchlist')]")
-    tabAlerts = (MobileBy.XPATH, "//android.view.View[contains(@content-desc, 'Alerts')]")
+    tabWatchlist = (MobileBy.XPATH, "//android.view.View/android.view.View[contains(@content-desc,'Watchlist')" +
+                    "and contains(@content-desc,'Tab')]")
+    tabAlerts = (MobileBy.XPATH, "//android.view.View[contains(@content-desc,'Alerts') " +
+                 "and contains(@content-desc,'Tab')]")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -26,7 +28,9 @@ class WatchlistPage(BasePage):
 
     def is_watchlist_empty(self):
         if (len(self.driver.find_elements(MobileBy.XPATH,
-            "//android.view.View[contains(@content-desc, 'Watchlist')]//parent::android.view.View/preceding-sibling::android.view.View/android.view.View/android.view.View")) > 0):
+                                          "//android.view.View[contains(@content-desc, 'Watchlist')]"
+                                          "/parent::android.view.View/preceding-sibling::android.view.View"
+                                          "/android.view.View/android.view.View")) > 0):
             return False
         else:
             return True
@@ -35,4 +39,6 @@ class WatchlistPage(BasePage):
         return self.wait_for_element(currencyPair)
 
     def navigate_to_alerts_tab(self):
+        self.wait_for_element(self.titleWatchlist)
+        self.wait_for_element(self.tabAlerts)
         self.click_on_element(self.tabAlerts)

@@ -20,8 +20,11 @@ class CreateAlertPage(BasePage):
     pairADAGBP = (MobileBy.ACCESSIBILITY_ID, "ADA/GBP")
     pairADACHF = (MobileBy.ACCESSIBILITY_ID, "ADA/CHF")
     pairDOTUSD = (MobileBy.ACCESSIBILITY_ID, "DOT/USD")
-    inputPrice = (MobileBy.XPATH, "//XCUIElementTypeTextField")
-    buttonCreateAlert = (MobileBy.XPATH, "//XCUIElementTypeButton[@name = 'Create Alert']")
+    pairDOTEUR = (MobileBy.ACCESSIBILITY_ID, "DOT/EUR")
+    pairDOTGBP = (MobileBy.ACCESSIBILITY_ID, "DOT/GBP")
+    pairDOTCHF = (MobileBy.ACCESSIBILITY_ID, "DOT/CHF")
+    inputPrice = (MobileBy.XPATH, "//android.widget.EditText")
+    buttonCreateAlert = (MobileBy.XPATH, "//android.widget.Button[@content-desc='Create Alert']")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -33,8 +36,11 @@ class CreateAlertPage(BasePage):
         return self.get_text(title)
 
     def add_new_alert(self, currencyPair, price):
-        self.click_on_element(self.buttonAdd)
         self.click_on_element(currencyPair)
         self.send_keys(self.inputPrice, price)
+        self.click_on_element(self.buttonCreateAlert)
+
+    def add_new_alert_without_price(self, currencyPair):
+        self.click_on_element(currencyPair)
         self.click_on_element(self.buttonCreateAlert)
 

@@ -1,6 +1,7 @@
 import unittest
 from appium import webdriver
 
+
 class IOSBaseTest(unittest.TestCase):
 
     def __init__(self, driver):
@@ -23,6 +24,7 @@ class IOSBaseTest(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,6 +1,7 @@
 from appium.webdriver.common.mobileby import MobileBy
 from pages.BasePage import BasePage
 
+
 class CreateAlertPage(BasePage):
     """
         Create Alert page locators
