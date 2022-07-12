@@ -15,8 +15,8 @@ class IOSBaseTest(unittest.TestCase):
             "platformName": "iOS",
             "platformVersion": "15.4",
             "automationName": "XCUITest",
-            "deviceName": "iPhone 13",
-            "app": "/Users/zsnagy/PycharmProjects/MobileTestFramework/binaries/test_app_ios.zip"
+            "deviceName": "<IOS SIMULATOR>",
+            "app": "<IOS APP ABSOlUTE PATH>"
         }
 
         self.driver = webdriver.Remote("http://0.0.0.0:4723/wd/hub", desired_caps)

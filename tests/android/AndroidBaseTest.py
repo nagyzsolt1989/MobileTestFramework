@@ -14,8 +14,8 @@ class AndroidBaseTest(unittest.TestCase):
             "platformName": "Android",
             "platformVersion": "10",
             "automationName": "UiAutomator2",
-            "deviceName": "Appium",
-            "app": "/Users/zsnagy/PycharmProjects/MobileTestFramework/binaries/app-dev-debug.apk"
+            "deviceName": "<ANDROID EMULATOR>",
+            "app": "<ANDROID APP ABSOLUTE PATH>"
         }
 
         self.driver = webdriver.Remote("http://0.0.0.0:4723/wd/hub", desired_caps)
