@@ -13,13 +13,13 @@ Sample Appium Test Framework in Python
 ## Getting Started
 ```
 1. git clone https://github.com/nagyzsolt1989/MobileTestFramework.git
-2. Navigate to `MobileTestFramework`and install the requirements with `pip install to-requirements.txt`
+2. Navigate to `MobileTestFramework`and install the requirements with `pip install requirements.txt`
 3. Replace <ANDROID EMULATOR> placeholder with you Android Emulator in MobileTestFramework/tests/android/AndroidBaseTest.py
-4. Replace <ANDROID APP ABSOLUTE PATH>> placeholder with the absolute path of your apk in MobileTestFramework/tests/android/AndroidBaseTest.py
-5. Change the platformVersion value to your emulators' version
+4. Replace <ANDROID APP ABSOLUTE PATH> placeholder with the absolute path of your apk in MobileTestFramework/tests/android/AndroidBaseTest.py
+5. Change the platformVersion value to your emulators' version if it is neccessary
 6. Replace <IOS SIMULATOR> placeholder with you iOS Simulator in MobileTestFramework/tests/ios/IOSBaseTest.py
 4. Replace <IOS APP ABSOlUTE PATH> placeholder with the absolute path of your zip in MobileTestFramework/tests/ios/IOSBaseTest.py
-5. Change the platformVersion value to your simulators' version
+5. Change the platformVersion value to your simulators' version if it is neccessary
 ```
 
 ## Runing a Test
