@@ -1,15 +1,50 @@
-# MobileTestFramework
-Sample Appium Test Framework in Python
+<div align="center">
 
-## Pre-Requisite
-```
-1. Python 3
-2. Pycharm
-3. PIP
-4. Running Appium client
-5. Suitable Android and iOS binaries
-6. Available Android Emulator and iOS Simulator
-```
+![Logo](docs/logo.jpeg)
+
+# Python Mobile Automation Framework
+
+[Overview](#scroll-overview)
+•
+[Framework Stack](#factory-framework-stack)
+•
+[Documentation](#blue_book-documentation)
+•
+[Demo](#dvd-demo)
+
+</div>
+
+## :bookmark_tabs: Menu
+
+- [Overview](#scroll-overview)
+- [Framework Stack](#factory-framework-stack)
+- [Documentation](#blue_book-documentation)
+    - [Prerequisites](#exclamation-prerequisites)
+    - [Design Patterns](#rice_scene-design-patterns)
+    - [Directory Tree](#open_file_folder-directory-tree)
+    - [Dependencies and libs](#floppy_disk-dependencies)
+- [Demo](#dvd-demo)
+
+## :scroll: Overview
+
+An end to end python mobile test framework utilizing the latest tech available in January 2023.
+
+## :factory: Framework Stack
+
+# :blue_book: Documentation
+
+## :exclamation: Prerequisites
+
+- Python 3
+- Pycharm
+- PIP
+- Appium 2
+- Selenium 4
+- Android Emulator 
+- iOS Simulator
+
+## :rice_scene: Design Patterns
+
 
 ## Getting Started
 ```
@@ -30,6 +65,12 @@ Sample Appium Test Framework in Python
 
 ### Reports used
 - Pytest HMTL Report
+
+## :floppy_disk: Dependencies
+
+## :open_file_folder: Directory Tree
+
+## :dvd: Demo
 
 ### Sample Report
 ![Screenshot 2022-07-12 at 23 24 20](https://user-images.githubusercontent.com/12999800/178598510-bc1a6e26-0fe1-40d7-8ec9-cabecb6b2fa7.png)
