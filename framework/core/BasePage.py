@@ -1,11 +1,7 @@
-import logging as logger
-import time
-
 from selenium.common import TimeoutException
-from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import logging as logger
 
 class BasePage:
 
