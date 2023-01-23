@@ -39,7 +39,7 @@ def mobile_driver(request):
         options.platform_name = "iOS"
         options.platformVersion = '15.6'
         options.device_name = 'iPhone 14'
-        options.app = os.path.dirname(os.path.dirname(__file__)) + "MobileTestFramework/apps/demoApp.zip"
+        options.app = os.path.dirname(os.path.dirname(__file__)) + "/MobileTestFramework/apps/demoApp.zip"
 
     driver = webdriver.Remote("http://0.0.0.0:4723", options=options)
     logger.info("Appium driver initialized")
