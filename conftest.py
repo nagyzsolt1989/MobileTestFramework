@@ -1,8 +1,9 @@
-import logging
-import os
-
-import pytest
+from appium.options.android import UiAutomator2Options
+from appium.options.ios import XCUITestOptions
 from appium import webdriver
+import logging
+import pytest
+import os
 
 
 @pytest.hookimpl
@@ -22,41 +23,28 @@ def device(request):
     return request.config.getoption("--device")
 
 
-@pytest.fixture(scope='session')
-def get_logger():
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
-    ch = logging.FileHandler(r'app.log', mode='w')
-    ch.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s', '%m/%d/%Y %I:%M:%S %p')
-    ch.setFormatter(formatter)
-    logger.addHandler(ch)
-    return logger
-
-
 @pytest.fixture(scope='class', autouse=True)
-def mobile_driver(request, get_logger):
-    if ("android" == request.config.getoption("--platform")):
-        desired_caps = {
-            "platformName": "Android",
-            "platformVersion": "12",
-            "automationName": "UiAutomator2",
-            "deviceName": "Google Pixel 6",
-            "app": os.path.dirname(os.path.dirname(__file__)) + "/MobileTestFramework/apps/demoApp.apk",
-            "appWaitActivity": "dev.flutter.formApp.form_app.MainActivity"
-        }
-    elif ("ios" == request.config.getoption("--platform")):
-        desired_caps = {
-            "platformName": "iOS",
-            "platformVersion": "16.2",
-            "automationName": "XCUITest",
-            "deviceName": "iPhone 14",
-            "app": os.path.dirname(os.path.dirname(__file__)) + "MobileTestFramework/apps/demoApp.zip"
-        }
+def mobile_driver(request):
+    logger = logging.getLogger(__name__)
+    logger.info("Configuring desired capabilities")
+    if "android" == request.config.getoption("--platform"):
+        options = UiAutomator2Options()
+        options.platform_name = 'Android'
+        options.platformVersion = '12'
+        options.device_name = 'Google Pixel 6'
+        options.app = os.path.dirname(os.path.dirname(__file__)) + "/MobileTestFramework/apps/demoApp.apk"
+        options.app_wait_activity = "dev.flutter.formApp.form_app.MainActivity"
+    elif "ios" == request.config.getoption("--platform"):
+        options = XCUITestOptions()
+        options.platform_name = "iOS"
+        options.platformVersion = '15.6'
+        options.device_name = 'iPhone 14'
+        options.app = os.path.dirname(os.path.dirname(__file__)) + "MobileTestFramework/apps/demoApp.zip"
 
-    driver = webdriver.Remote("http://0.0.0.0:4723", desired_caps)
-    logging.info("Appium driver ")
+    driver = webdriver.Remote("http://0.0.0.0:4723", options=options)
+    logger.info("Appium driver initialized")
     driver.implicitly_wait(10)
+    request.cls.logger = logger
     request.cls.driver = driver
-    yield driver
+    yield
     driver.quit()
