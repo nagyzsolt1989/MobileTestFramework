@@ -1,13 +1,16 @@
-from selenium.common import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common import TimeoutException
 import logging as logger
+import logging
+
 
 class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
+        self.logger = logging.getLogger(__name__)
 
     def click_on_element(self, MobilBy):
         self.wait.until(EC.visibility_of_element_located(MobilBy)).click()

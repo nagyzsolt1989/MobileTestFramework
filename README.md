@@ -58,13 +58,13 @@ An end to end python mobile test framework utilizing the latest tech available i
 5. Change the platformVersion value to your simulators' version if it is neccessary
 ```
 
-## Runing a Test
+## Running a Test
 ```
 1. Run `pytest -v <FILE_NAME> --html=test_report.html` in the terminal to start a test execution
 ```
 
 ### Reports used
-- Pytest HMTL Report
+- Pytest HTML Report
 
 ## :floppy_disk: Dependencies
 

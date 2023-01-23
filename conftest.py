@@ -23,10 +23,10 @@ def device(request):
     return request.config.getoption("--device")
 
 
-@pytest.fixture(scope='class', autouse=True)
+@pytest.fixture(autouse=True)
 def mobile_driver(request):
     logger = logging.getLogger(__name__)
-    logger.info("Configuring desired capabilities")
+    logger.info("Configuring Appium options")
     if "android" == request.config.getoption("--platform"):
         options = UiAutomator2Options()
         options.platform_name = 'Android'
@@ -44,7 +44,7 @@ def mobile_driver(request):
     driver = webdriver.Remote("http://0.0.0.0:4723", options=options)
     logger.info("Appium driver initialized")
     driver.implicitly_wait(10)
-    request.cls.logger = logger
     request.cls.driver = driver
     yield
     driver.quit()
+    logger.info("Appium session ended")
