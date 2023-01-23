@@ -1,9 +1,12 @@
+from pages.android.page_sign_in import SignInPage
 from framework.core.test_base import BaseTest
 from pages.android.page_home import HomePage
-from pages.android.page_sign_in import SignInPage
+import allure
 
 
-class TestHome(BaseTest):
+@allure.feature('Sign In')
+@allure.story('Layout')
+class TestSignIn(BaseTest):
 
     def test_home_page(self):
         self.home = HomePage(self.driver)

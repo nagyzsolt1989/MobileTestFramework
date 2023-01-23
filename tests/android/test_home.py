@@ -1,7 +1,10 @@
 from framework.core.test_base import BaseTest
 from pages.android.page_home import HomePage
+import allure
 
 
+@allure.feature('Home')
+@allure.story('Layout')
 class TestHome(BaseTest):
 
     def test_home_page(self):

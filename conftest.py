@@ -8,7 +8,7 @@ import os
 
 @pytest.hookimpl
 def pytest_addoption(parser):
-    parser.addoption('--platform', action='store', default="android", help="Select a platform: android / ios")
+    parser.addoption('--platform', action='store', default="ios", help="Select a platform: android / ios")
     parser.addoption('--device', action='store', default="emulator",
                      help="Select a device type: simulator / emulator / real device")
 

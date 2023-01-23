@@ -1,8 +1,11 @@
 from pages.android.page_validation import ValidationPage
 from framework.core.test_base import BaseTest
 from pages.android.page_home import HomePage
+import allure
 
 
+@allure.feature('Validation')
+@allure.story('Data Validation')
 class TestValidation(BaseTest):
 
     def test_validation_page(self):
