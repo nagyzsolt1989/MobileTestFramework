@@ -1,3 +1,5 @@
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from utils.listeners.event_listener import EventListener
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
 from appium import webdriver
@@ -41,10 +43,10 @@ def mobile_driver(request):
         options.device_name = 'iPhone 14'
         options.app = os.path.dirname(os.path.dirname(__file__)) + "/MobileTestFramework/apps/demoApp.zip"
 
-    driver = webdriver.Remote("http://0.0.0.0:4723", options=options)
-    logger.info("Appium driver initialized")
+    driver = EventFiringWebDriver(webdriver.Remote("http://0.0.0.0:4723", options=options), EventListener())
     driver.implicitly_wait(10)
     request.cls.driver = driver
+    logger.info("Appium driver initialized")
     yield
     driver.quit()
     logger.info("Appium session ended")
