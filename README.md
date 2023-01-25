@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo](docs/logo.jpeg)
+![Logo](https://user-images.githubusercontent.com/12999800/214615365-86872ee9-1d11-42d0-91a6-bc4a6646d9af.jpeg)
 
 # Python Mobile Automation Framework
 
@@ -30,6 +30,8 @@
 An end to end python mobile test framework utilizing the latest tech available in January 2023.
 
 ## :factory: Framework Stack
+
+![framework stack](https://user-images.githubusercontent.com/12999800/214615298-6245117d-e794-4bda-a8ca-79d8319cfc09.png)
 
 # :blue_book: Documentation
 
@@ -69,8 +71,60 @@ An end to end python mobile test framework utilizing the latest tech available i
 ## :floppy_disk: Dependencies
 
 ## :open_file_folder: Directory Tree
+```
+/Users/zsnagy/Repos/MobileTestFramework
+
+├── apps
+│   ├── demoApp.apk
+│   └── demoApp.zip
+├── framework
+│   ├── __init__.py
+│   └── core
+│       ├── __init__.py
+│       ├── page_base.py
+│       └── test_base.py
+├── pages
+│   ├── __init__.py
+│   ├── android
+│   │   ├── __init__.py
+│   │   ├── page_home.py
+│   │   ├── page_sign_in.py
+│   │   └── page_validation.py
+│   └── ios
+│       ├── __init__.py
+│       ├── page_home.py
+│       ├── page_sign_in.py
+│       └── page_validation.py
+├── tests
+│   ├── __init__.py
+│   ├── android
+│   │   ├── __init__.py
+│   │   ├── test_home.py
+│   │   ├── test_sign_in.py
+│   │   └── test_validation.py
+│   └── ios
+│       ├── __init__.py
+│       ├── test_home.py
+│       ├── test_sign_in.py
+│       └── test_validation.py
+├── utils
+│   ├── __init__.py
+│   ├── listeners
+│   │   ├── __init__.py
+│   │   └── event_listener.py
+│   └── slack
+│       ├── __init__.py
+│       └── slack_notification.py
+├── conftest.py
+├── pytest.ini
+├── requirements.txt
+├── README.md
+└── testrail.cfg
+```
 
 ## :dvd: Demo
 
-### Sample Report
-![Screenshot 2022-07-12 at 23 24 20](https://user-images.githubusercontent.com/12999800/178598510-bc1a6e26-0fe1-40d7-8ec9-cabecb6b2fa7.png)
+![allure_1](https://user-images.githubusercontent.com/12999800/214614068-72a6030c-2d98-4619-a1d4-e2f13acfe9ee.png)
+![allure_2](https://user-images.githubusercontent.com/12999800/214614118-8d032d5e-cc06-4725-a8ce-45dddf24dbae.png)
+
+![slack_notification](https://user-images.githubusercontent.com/12999800/214614189-450c08d2-967a-4654-85e5-6a321738a34c.png)
