@@ -1,13 +1,18 @@
+from dotenv import load_dotenv
 import requests
 import json
+import os
 
-web_hook = "ADD YOUR SLACK WEBHOOK URL HERE"
+# Add your slack webhook as SLACK_WEB_HOOK in the .env file of the project root
+load_dotenv(".env")
+web_hook = os.getenv("SLACK_WEB_HOOK")
+
 
 def send_slack_notification(web_hook, message):
     url = web_hook
     data = message
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
-    r = requests.post(url, data=json.dumps(data), headers=headers)
+    requests.post(url, data=json.dumps(data), headers=headers)
 
 
 def compose_message(platform, device, os, passed, failed, skipped, total, duration, failed_tests):

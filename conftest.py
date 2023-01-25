@@ -10,6 +10,8 @@ import time
 import math
 import os
 
+logger = logging.getLogger(__name__)
+
 
 @pytest.hookimpl
 def pytest_addoption(parser):
@@ -31,7 +33,6 @@ def device(request):
 
 @pytest.fixture(autouse=True)
 def mobile_driver(request):
-    logger = logging.getLogger(__name__)
     logger.info("Configuring Appium options")
     if "android" == request.config.getoption("--platform"):
         options = UiAutomator2Options()
@@ -77,8 +78,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     duration = str(minutes) + " minute(s) " + str(seconds) + " seconds"
 
     if len(result["failed_cases"]) > 0:
-        for case in result["failed_cases"]:
-            failed_cases_list = "\n\u2022 ".join(result["failed_cases"])
+        failed_cases_list = "\n\u2022 " + '\n\u2022'.join([str(case) for case in result["failed_cases"]])
     else:
         failed_cases_list = "\n\u2022 None"
 
@@ -86,4 +86,6 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
                               platform_version, result["passed"], result["failed"], result["skipped"],
                               result["total"], duration, failed_cases_list)
 
-    send_slack_notification(web_hook, message)
+    if config.getoption('--slack') == "true":
+        send_slack_notification(web_hook, message)
+        logger.info("Slack notification sent")
