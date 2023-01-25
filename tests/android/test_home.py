@@ -1,5 +1,6 @@
 from framework.core.test_base import BaseTest
 from pages.android.page_home import HomePage
+from pytest_testrail.plugin import pytestrail
 import allure
 
 
@@ -7,6 +8,7 @@ import allure
 @allure.story('Layout')
 class TestHome(BaseTest):
 
+    @pytestrail.case('C1')
     def test_home_page(self):
         home = HomePage(self.driver)
 

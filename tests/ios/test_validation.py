@@ -1,5 +1,6 @@
 from pages.ios.page_validation import ValidationPage
 from framework.core.test_base import BaseTest
+from pytest_testrail.plugin import pytestrail
 from pages.ios.page_home import HomePage
 import allure
 
@@ -8,6 +9,7 @@ import allure
 @allure.story('Data Validation')
 class TestValidation(BaseTest):
 
+    @pytestrail.case('C3')
     def test_validation_page(self):
         self.home = HomePage(self.driver)
         self.validation = ValidationPage(self.driver)
@@ -21,6 +23,7 @@ class TestValidation(BaseTest):
             "Terms of service checkbox was not visible"
         assert True is self.validation.is_submit_button_displayed(), "Submit button was not visible"
 
+    @pytestrail.case('C4')
     def test_empty_story(self):
         self.home = HomePage(self.driver)
         self.validation = ValidationPage(self.driver)
@@ -33,6 +36,7 @@ class TestValidation(BaseTest):
         assert True is self.validation.is_terms_of_service_warning_displayed(), \
             "Terms of Service warning was not visible"
 
+    @pytestrail.case('C5')
     def test_valid_story(self):
         self.home = HomePage(self.driver)
         self.validation = ValidationPage(self.driver)
