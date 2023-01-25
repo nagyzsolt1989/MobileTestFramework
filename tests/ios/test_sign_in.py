@@ -8,7 +8,7 @@ import allure
 @allure.story('Layout')
 class TestSignIn(BaseTest):
 
-    def test_home_page(self):
+    def test_sign_in_page(self):
         self.home = HomePage(self.driver)
         self.sign_in = SignInPage(self.driver)
 
