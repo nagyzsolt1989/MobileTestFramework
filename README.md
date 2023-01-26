@@ -4,6 +4,12 @@
 
 # Python Mobile Automation Framework
 
+![Badge](https://img.shields.io/badge/Selenium-4.8.0-brightgreen)  
+![Badge](https://img.shields.io/badge/Appium-2.8.1-brightgreen)  
+![Badge](https://img.shields.io/badge/Pytest-7.2.1-brightgreen)  
+![Badge](https://img.shields.io/badge/Allure-2.12.0-brightgreen)  
+
+
 [Overview](#scroll-overview)
 •
 [Framework Stack](#factory-framework-stack)
@@ -17,21 +23,32 @@
 ## :bookmark_tabs: Menu
 
 - [Overview](#scroll-overview)
-- [Framework Stack](#factory-framework-stack)
+  - [Framework Stack](#factory-framework-stack)
+  - [Features](#books-features)
 - [Documentation](#blue_book-documentation)
-    - [Prerequisites](#exclamation-prerequisites)
-    - [Design Patterns](#rice_scene-design-patterns)
-    - [Directory Tree](#open_file_folder-directory-tree)
-    - [Dependencies and libs](#floppy_disk-dependencies)
+  - [Prerequisites](#exclamation-prerequisites)
+  - [Design Patterns](#rice_scene-design-patterns)
+  - [Directory Tree](#open_file_folder-directory-tree)
+  - [Dependencies and libs](#floppy_disk-dependencies)
 - [Demo](#dvd-demo)
 
 ## :scroll: Overview
 
-An end to end python mobile test framework utilizing the latest tech available in January 2023.
-
+A python mobile test framework for Android and iOS utilizing Appium, Selenium, Pytest and the latest tech available in January 2023.
 ## :factory: Framework Stack
 
 ![framework stack](https://user-images.githubusercontent.com/12999800/214615298-6245117d-e794-4bda-a8ca-79d8319cfc09.png)
+
+## :books: Features
+
+- Utilizing Page Object Model 
+- Integrated Allure reporting 
+- Attach screenshots to Allure before every click or input field change
+- Attach a screenshot to Allure on test failure
+- Capability to post the test results to Slack
+- Capability to post the test results to TestRail
+- Capability to retry failed cases
+- Customizable console and file logger
 
 # :blue_book: Documentation
 
@@ -47,33 +64,32 @@ An end to end python mobile test framework utilizing the latest tech available i
 
 ## :rice_scene: Design Patterns
 
-
-## Getting Started
-```
-1. git clone https://github.com/nagyzsolt1989/MobileTestFramework.git
-2. Navigate to `MobileTestFramework`and install the requirements with `pip install requirements.txt`
-3. Replace <ANDROID EMULATOR> placeholder with you Android Emulator in MobileTestFramework/tests/android/AndroidBaseTest.py
-4. Replace <ANDROID APP ABSOLUTE PATH> placeholder with the absolute path of your apk in MobileTestFramework/tests/android/AndroidBaseTest.py
-5. Change the platformVersion value to your emulators' version if it is neccessary
-6. Replace <IOS SIMULATOR> placeholder with you iOS Simulator in MobileTestFramework/tests/ios/IOSBaseTest.py
-4. Replace <IOS APP ABSOlUTE PATH> placeholder with the absolute path of your zip in MobileTestFramework/tests/ios/IOSBaseTest.py
-5. Change the platformVersion value to your simulators' version if it is neccessary
-```
-
-## Running a Test
-```
-1. Run `pytest -v <FILE_NAME> --html=test_report.html` in the terminal to start a test execution
-```
-
-### Reports used
-- Pytest HTML Report
+[Page Object Model:](https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/) A structure where every page of the 
+application is represented with a class that contains the elements for that page with the methods 
+for interacting with these elements. When the UI of the app changes the tests themselves don’t need to change,
+only the page object class should be updated. The advantages of POM:
+- Easier code maintenance
+- Code reusability
+- Improved readability and reliability
 
 ## :floppy_disk: Dependencies
+
+- Appium-Python-Client
+- selenium
+- pytest
+- pytest-parallel
+- pytest-xdist
+- pytest-rerunfailures
+- pytest-html
+- pytest-metadata
+- requests
+- allure-pytest
+- python-dotenv
+- pytest-testrail
 
 ## :open_file_folder: Directory Tree
 ```
 /Users/zsnagy/Repos/MobileTestFramework
-
 ├── apps
 │   ├── demoApp.apk
 │   └── demoApp.zip
@@ -124,7 +140,15 @@ An end to end python mobile test framework utilizing the latest tech available i
 
 ## :dvd: Demo
 
+- After the configuration is adjusted in conftest.py, a test run can be initiated from the PyCharm
+
+![test_run](.images/ios_test_run.gif)
+
+- Allure report
+
 ![allure_1](https://user-images.githubusercontent.com/12999800/214614068-72a6030c-2d98-4619-a1d4-e2f13acfe9ee.png)
 ![allure_2](https://user-images.githubusercontent.com/12999800/214614118-8d032d5e-cc06-4725-a8ce-45dddf24dbae.png)
 
-![slack_notification](https://user-images.githubusercontent.com/12999800/214614189-450c08d2-967a-4654-85e5-6a321738a34c.png)
+- Slack notification
+
+![slack_notification](.images/slack.png)
